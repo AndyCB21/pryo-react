@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from './pages/home/Home'
+import Contatti from './pages/contatti/Contatti'
+import About from './pages/about/About'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Esercizio1 from './pages/esercizi/esercizio1/Esercizio1';
+import Esercizio2 from './pages/esercizi/esercizio2/Esercizio2';
+import Esercizio3 from './pages/esercizi/esercizio3/Esercizio3';
+import Esercizio4 from './pages/esercizi/esercizio4/Esercizio4';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        {/* Index */}
+        <Route exact path="/" element={<Home />} />
+        {/* Route di prova */}
+        <Route path="/contatti" element={<Contatti />} />
+        <Route path="/about" element={<About />} />
+        {/* Esercizi */}
+        <Route path="/esercizio/1" element={<Esercizio1 />} />
+        <Route path="/esercizio/2" element={<Esercizio2 />} />
+        <Route path="/esercizio/3" element={<Esercizio3 />} />
+        <Route path="/esercizio/4" element={<Esercizio4 />} />
+      </Routes>
+      {/* <Footer /> */}
+    </Router>
   );
 }
 
